@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class launchMissile : MonoBehaviour
 {
-    public TurretAI.TurretType type = TurretAI.TurretType.Single;
+    public Turret.TurretType type = Turret.TurretType.Single;
     public Transform target;
     public bool lockOn;
     //public bool track;
@@ -26,7 +26,7 @@ public class launchMissile : MonoBehaviour
             lockOn = true;
         }
 
-        if (type == TurretAI.TurretType.Single)
+        if (type == Turret.TurretType.Single)
         {
             Vector3 dir = target.position - transform.position;
             transform.rotation = Quaternion.LookRotation(dir);
@@ -52,7 +52,7 @@ public class launchMissile : MonoBehaviour
             Explosion();
         }
 
-        if (type == TurretAI.TurretType.Catapult)
+        if (type == Turret.TurretType.Catapult)
         {
             if (lockOn)
             {
@@ -62,7 +62,7 @@ public class launchMissile : MonoBehaviour
                 lockOn = false;
             }
         }
-        else if (type == TurretAI.TurretType.Dual)
+        else if (type == Turret.TurretType.Dual)
         {
             Vector3 dir = target.position - transform.position;
             //float distThisFrame = speed * Time.deltaTime;
@@ -76,7 +76,7 @@ public class launchMissile : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(newDirection);
 
         }
-        else if (type == TurretAI.TurretType.Single)
+        else if (type == Turret.TurretType.Single)
         {
             float singleSpeed = speed * Time.deltaTime;
             transform.Translate(transform.forward * singleSpeed * 2, Space.World);
