@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    public Transform currentTargetZombie;
-
     public enum TurretType
     {
         Single = 1,
@@ -14,7 +12,7 @@ public class Turret : MonoBehaviour
     }
 
     public GameObject currentTarget;
-    public Transform turreyHead;
+    public Transform turreyHead;  // the part can rotate
 
     public float attackDist = 10.0f; // range
     public float attackDamage;
@@ -92,7 +90,7 @@ public class Turret : MonoBehaviour
     private void CheckForTarget()
     {
         Collider[] colls = Physics.OverlapSphere(transform.position, attackDist);
-        float distAway = Mathf.Infinity;
+        float distAway = Mathf.Infinity;    // shortest enemy we found
 
         for (int i = 0; i < colls.Length; i++)
         {
@@ -102,7 +100,7 @@ public class Turret : MonoBehaviour
                 if (dist < distAway)
                 {
                     currentTarget = colls[i].gameObject;
-                    distAway = dist;
+                    distAway = dist; // set nearest zombie 
                 }
             }
         }
@@ -170,7 +168,7 @@ public class Turret : MonoBehaviour
             if (refreshRandom)
             {
 
-                int randomAngle = Random.Range(0, 359);
+                int randomAngle = Random.Range(0, 269);
                 randomRot = new Vector3(0, randomAngle, 0);
                 refreshRandom = false;
             }
@@ -185,8 +183,8 @@ public class Turret : MonoBehaviour
 
             Instantiate(muzzleEff, muzzleMain.transform.position, muzzleMain.rotation);
             GameObject missleGo = Instantiate(bullet, muzzleMain.transform.position, muzzleMain.rotation);
-            Projectile projectile = missleGo.GetComponent<Projectile>();
-            projectile.target = lockOnPos;
+            launchMissile launchMissile = missleGo.GetComponent<launchMissile>();
+            launchMissile.target = lockOnPos;
         }
         else if (turretType == TurretType.Dual)
         {
@@ -194,15 +192,15 @@ public class Turret : MonoBehaviour
             {
                 Instantiate(muzzleEff, muzzleMain.transform.position, muzzleMain.rotation);
                 GameObject missleGo = Instantiate(bullet, muzzleMain.transform.position, muzzleMain.rotation);
-                Projectile projectile = missleGo.GetComponent<Projectile>();
-                projectile.target = transform.GetComponent<TurretAI>().currentTarget.transform;
+                launchMissile launchMissile = missleGo.GetComponent<launchMissile>();
+                launchMissile.target = transform.GetComponent<TurretAI>().currentTarget.transform;
             }
             else
             {
                 Instantiate(muzzleEff, muzzleSub.transform.position, muzzleSub.rotation);
                 GameObject missleGo = Instantiate(bullet, muzzleSub.transform.position, muzzleSub.rotation);
-                Projectile projectile = missleGo.GetComponent<Projectile>();
-                projectile.target = transform.GetComponent<TurretAI>().currentTarget.transform;
+                launchMissile launchMissile = missleGo.GetComponent<launchMissile>();
+                launchMissile.target = transform.GetComponent<TurretAI>().currentTarget.transform;
             }
 
             shootLeft = !shootLeft;
@@ -211,8 +209,8 @@ public class Turret : MonoBehaviour
         {
             Instantiate(muzzleEff, muzzleMain.transform.position, muzzleMain.rotation);
             GameObject missleGo = Instantiate(bullet, muzzleMain.transform.position, muzzleMain.rotation);
-            Projectile projectile = missleGo.GetComponent<Projectile>();
-            projectile.target = currentTarget.transform;
+            launchMissile launchMissile = missleGo.GetComponent<launchMissile>();
+            launchMissile.target = currentTarget.transform;
         }
     }
 }

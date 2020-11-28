@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4953743275924718}
   - component: {fileID: 136665061252125518}
-  - component: {fileID: 114251933732704356}
   - component: {fileID: 54387503400678680}
+  - component: {fileID: -3045451576097456064}
   m_Layer: 0
   m_Name: Bullet_Gun
   m_TagString: Untagged
@@ -49,28 +49,6 @@ CapsuleCollider:
   m_Height: 0.5
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114251933732704356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230967522142342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66749fef3309f654791e063c70ce1ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  target: {fileID: 0}
-  lockOn: 0
-  speed: 10
-  turnSpeed: 4
-  catapult: 0
-  knockBack: 1.5
-  boomTimer: 10
-  explosion: {fileID: 198049787571439516, guid: 6d074a749488789479e539251fdf184e,
-    type: 3}
 --- !u!54 &54387503400678680
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -87,6 +65,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-3045451576097456064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230967522142342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 455e4b4696fc342d6a9ba48f807c48eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  target: {fileID: 0}
+  lockOn: 0
+  speed: 10
+  turnSpeed: 4
+  catapult: 0
+  knockBack: 1.5
+  boomTimer: 10
+  explosion: {fileID: 198049787571439516, guid: 6d074a749488789479e539251fdf184e,
+    type: 3}
 --- !u!1 &1555079658164618
 GameObject:
   m_ObjectHideFlags: 0
