@@ -10,6 +10,7 @@ public class zombie : MonoBehaviour
     void Start()
     {
         zombieCurrentMoveTo = guidePoints.guidePointsArray[0];
+        transform.localScale = new Vector3(2f, 2f, 2f);
     }
 
     // Update is called once per frame
