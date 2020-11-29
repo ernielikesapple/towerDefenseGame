@@ -35,7 +35,7 @@ public class launchMissile : MonoBehaviour
 
     private void Update()
     {
-        if (target == null)
+        if (target == null)  // when the zombie dies or there is a bullet already however the zombie already died
         {
             Explosion();
             return;

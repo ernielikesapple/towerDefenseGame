@@ -16,18 +16,18 @@ public class Turret : MonoBehaviour
 
     public float attackDist = 10.0f; // range
     public float attackDamage;
-    public float shootCoolDown;
-    private float timer;
+    public float shootCoolDown; // fire rate
+    private float timer;   // fire countdown
     public float loockSpeed;
 
     //public Quaternion randomRot;
     public Vector3 randomRot;
     public Animator animator;
 
-    [Header("[Turret Type]")]
+    [Header("[Turret Type]")] // add this to be more oragnized
     public TurretType turretType = TurretType.Single;
 
-    public Transform muzzleMain;
+    public Transform muzzleMain; // fire point
     public Transform muzzleSub;
     public GameObject muzzleEff;
     public GameObject bullet;
