@@ -55,7 +55,6 @@ public class Projectile : MonoBehaviour {
 
         if (type == TurretAI.TurretType.Catapult)
         {
-            Debug.Log("11111111");
             if (lockOn)
             {
                 Vector3 Vo = CalculateCatapult(target.transform.position, transform.position, 1);
@@ -66,7 +65,6 @@ public class Projectile : MonoBehaviour {
             }
         }else if(type == TurretAI.TurretType.Dual)
         {
-            Debug.Log("2222222");
             Vector3 dir = target.position - transform.position;
             //float distThisFrame = speed * Time.deltaTime;
             Vector3 newDirection = Vector3.RotateTowards(transform.forward, dir, Time.deltaTime * turnSpeed, 0.0f);
@@ -81,7 +79,6 @@ public class Projectile : MonoBehaviour {
         }
         else if (type == TurretAI.TurretType.Single)
         {
-            Debug.Log("33333");
             float singleSpeed = speed * Time.deltaTime;
             transform.Translate(transform.forward * singleSpeed * 2, Space.World);
             

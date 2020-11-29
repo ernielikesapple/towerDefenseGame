@@ -61,7 +61,6 @@ public class zombie : MonoBehaviour
         health -= amount;
 
         //healthBar.fillAmount = health / startHealth; //todo: add health bar
-        Debug.Log("伤害血量：" + amount);
         if (health <= 0 && !isDead)
         {
             Die();
