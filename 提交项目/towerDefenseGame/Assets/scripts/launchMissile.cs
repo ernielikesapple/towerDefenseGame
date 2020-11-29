@@ -61,9 +61,12 @@ public class launchMissile : MonoBehaviour
                 transform.GetComponent<Rigidbody>().velocity = Vo;
                 lockOn = false;
             }
+
+
         }
         else if (type == Turret.TurretType.Dual)
         {
+
             Vector3 dir = target.position - transform.position;
             //float distThisFrame = speed * Time.deltaTime;
             Vector3 newDirection = Vector3.RotateTowards(transform.forward, dir, Time.deltaTime * turnSpeed, 0.0f);
@@ -78,6 +81,8 @@ public class launchMissile : MonoBehaviour
         }
         else if (type == Turret.TurretType.Single)
         {
+
+
             float singleSpeed = speed * Time.deltaTime;
             transform.Translate(transform.forward * singleSpeed * 2, Space.World);
         }
@@ -102,9 +107,9 @@ public class launchMissile : MonoBehaviour
         return result;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)  // When a GameObject collides with another GameObject, Unity calls OnTriggerEnter.
     {
-        if (other.transform.tag == "zombie")
+        if (other.transform.tag == "zombie") // The other Collider involved in this collision.
         {
             Vector3 dir = other.transform.position - transform.position;
             //Vector3 knockBackPos = other.transform.position * (-dir.normalized * knockBack);

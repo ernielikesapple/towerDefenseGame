@@ -17,6 +17,7 @@ public class Projectile : MonoBehaviour {
     //public Vector3 _startPosition;
     //public float dist;
 
+    public float attackDamage = 0f;
     public ParticleSystem explosion;
 
     private void Start()
@@ -54,15 +55,18 @@ public class Projectile : MonoBehaviour {
 
         if (type == TurretAI.TurretType.Catapult)
         {
+            Debug.Log("11111111");
             if (lockOn)
             {
                 Vector3 Vo = CalculateCatapult(target.transform.position, transform.position, 1);
-
                 transform.GetComponent<Rigidbody>().velocity = Vo;
                 lockOn = false;
+                
+                
             }
         }else if(type == TurretAI.TurretType.Dual)
         {
+            Debug.Log("2222222");
             Vector3 dir = target.position - transform.position;
             //float distThisFrame = speed * Time.deltaTime;
             Vector3 newDirection = Vector3.RotateTowards(transform.forward, dir, Time.deltaTime * turnSpeed, 0.0f);
@@ -73,11 +77,14 @@ public class Projectile : MonoBehaviour {
 
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
             transform.rotation = Quaternion.LookRotation(newDirection);
-
-        }else if (type == TurretAI.TurretType.Single)
+            
+        }
+        else if (type == TurretAI.TurretType.Single)
         {
+            Debug.Log("33333");
             float singleSpeed = speed * Time.deltaTime;
             transform.Translate(transform.forward * singleSpeed * 2, Space.World);
+            
         }
     }
 
@@ -100,22 +107,37 @@ public class Projectile : MonoBehaviour {
         return result;
     }
 
-    private void OnTriggerEnter(Collider other)
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.transform.tag == "zombie")
+    //    {
+    //        Vector3 dir = other.transform.position - transform.position;
+    //        //Vector3 knockBackPos = other.transform.position * (-dir.normalized * knockBack);
+    //        Vector3 knockBackPos = other.transform.position + (dir.normalized * knockBack);
+    //        knockBackPos.y = 1;
+    //        other.transform.position = knockBackPos;
+    //        Explosion();
+    //    }
+    //}
+
+    void Damage(Transform zombie, float damageAmount)
     {
-        if (other.transform.tag == "Player")
+        zombie z = zombie.GetComponent<zombie>();
+
+        if (z != null)
         {
-            Vector3 dir = other.transform.position - transform.position;
-            //Vector3 knockBackPos = other.transform.position * (-dir.normalized * knockBack);
-            Vector3 knockBackPos = other.transform.position + (dir.normalized * knockBack);
-            knockBackPos.y = 1;
-            other.transform.position = knockBackPos;
-            Explosion();
+            z.TakeDamage(damageAmount);
         }
     }
 
     public void Explosion()
     {
         Instantiate(explosion, transform.position, transform.rotation);
+        
         Destroy(gameObject);
+        if (target != null) {
+            Damage(target, attackDamage);
+        }
+        
     }
 }
