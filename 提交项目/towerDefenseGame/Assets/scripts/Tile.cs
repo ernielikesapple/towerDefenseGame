@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour
 {
@@ -10,6 +9,8 @@ public class Tile : MonoBehaviour
 
     [HideInInspector]
     public GameObject turretOnTile;
+    [HideInInspector]
+    public TurretToBuild turretToBuild;
 
     private Renderer nodeRender;
     private Color orginalColor;
@@ -20,11 +21,19 @@ public class Tile : MonoBehaviour
     {
         nodeRender = GetComponent<Renderer>();
         orginalColor = nodeRender.material.color;
+        constructManager = ConstructManager.instance;
+    }
 
+    public Vector3 GetBuildPosition()
+    {
+        return transform.position + positionAboveTile;
     }
 
     void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         if (turretOnTile != null)
         {
             //buildManager.SelectNode(this);
@@ -32,16 +41,42 @@ public class Tile : MonoBehaviour
             return;
         }
 
-        //if (!constructManager.CanBuild)
-        //    return;
-        GameObject testT = ConstructManager.instance.testprefab;
-        turretOnTile = (GameObject)Instantiate(testT, transform.position + positionAboveTile, transform.rotation);
-        //BuildTurret(constructManager.GetTurretToBuild());
+        if (!constructManager.CanBuild)
+            return;
 
+        BuildTurret(constructManager.GetTurretToBuild());  // when click the tile, then try to place node on it
+
+    }
+
+    void BuildTurret(TurretToBuild turretToBuildLocal)
+    {
+        //if (PlayerStats.Money < turretToBuild.cost)
+        //{
+        //    Debug.Log("Not enough money to build that!");
+        //    return;
+        //}
+
+        //PlayerStats.Money -= turretToBuild.cost;
+
+        GameObject _turret = (GameObject)Instantiate(turretToBuildLocal.prefab, GetBuildPosition(), Quaternion.identity);
+        turretOnTile = _turret;
+
+        turretToBuild = turretToBuildLocal;
+
+        //GameObject effect = (GameObject)Instantiate(constructManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        //Destroy(effect, 5f);
+
+        Debug.Log("Turret build!");
     }
 
     void OnMouseEnter()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
+        if (!constructManager.CanBuild)
+            return;
+
         nodeRender.material.color = hoverIndicateColor;
     }
 

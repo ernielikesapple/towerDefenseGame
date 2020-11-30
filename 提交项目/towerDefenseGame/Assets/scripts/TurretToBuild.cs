@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class TurretToBuild : MonoBehaviour
+public class TurretToBuild
 {
 	public GameObject prefab;
 	public int cost;
