@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 public class Tile : MonoBehaviour
 {
     public Color hoverIndicateColor;
+    public Color notEnoughMoneyColor;
 
     public Vector3 positionAboveTile;
 
@@ -52,7 +53,7 @@ public class Tile : MonoBehaviour
     {
         if (playerInfo.Money < turretToBuildLocal.cost)
         {
-            Debug.Log("Not enough money to build that!"); //todo: display the text on the screen
+            Debug.Log("Not enough money to build that!"); //todo: display the text on the screen!!!!!!!!!!!
             return;
         }
 
@@ -78,6 +79,15 @@ public class Tile : MonoBehaviour
             return;
 
         nodeRender.material.color = hoverIndicateColor;
+
+        if (constructManager.HasMoney)
+        {
+            nodeRender.material.color = hoverIndicateColor;
+        }
+        else
+        {
+            nodeRender.material.color = notEnoughMoneyColor;
+        }
     }
 
     void OnMouseExit()

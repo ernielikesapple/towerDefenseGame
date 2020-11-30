@@ -108,6 +108,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41aa2c29a1a1e43bb903e50526a6ab55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverIndicateColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverIndicateColor: {r: 0.8301661, g: 0.9245283, b: 0.745728, a: 0}
+  notEnoughMoneyColor: {r: 0.8207547, g: 0.18195976, b: 0.18195976, a: 0}
   positionAboveTile: {x: 0, y: 0.5, z: 0}
   turretOnTile: {fileID: 0}
+  turretToBuild:
+    prefab: {fileID: 0}
+    cost: 0
+    upgradedPrefab: {fileID: 0}
+    upgradeCost: 0

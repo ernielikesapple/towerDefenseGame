@@ -15,19 +15,16 @@ public class Market : MonoBehaviour
 
 	public void SelectSingleMissleTurret()
 	{
-		Debug.Log("1");
 		constructManager.SelectTurretToBuild(singleMissleTurret);
 	}
 
 	public void SelectDoubleMissileLauncher()
 	{
-		Debug.Log("2");
 		constructManager.SelectTurretToBuild(doubleMissleTurret);
 	}
 
 	public void SelectCruiseMissleBeamer()
 	{
-		Debug.Log("3");
 		constructManager.SelectTurretToBuild(cruiseMissleTurret);
 	}
 }

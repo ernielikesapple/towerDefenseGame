@@ -26,9 +26,9 @@ public class ConstructManager : MonoBehaviour
 	//public NodeUI nodeUI;
 
 	public bool CanBuild { get { return turretToBuild != null; } } // only allow to build when it this var gets value
-	//public bool HasMoney { get { return PlayerStats.Money >= turretToBuild.cost; } } // todo: update play stats
+    public bool HasMoney { get { return playerInfo.Money >= turretToBuild.cost; } } // todo: update play stats
 
-	public void SelectNode(Tile tile)
+    public void SelectNode(Tile tile)
 	{
 		if (selectedNode == tile)
 		{
