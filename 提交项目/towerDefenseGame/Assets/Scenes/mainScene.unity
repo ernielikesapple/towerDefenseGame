@@ -2379,6 +2379,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2451,6 +2452,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 43.93, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a02ede2f994e64ea28f10d087683213c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panSpeed: 30
+  panBorderThickness: 10
+  scrollSpeed: 5
+  minY: 10
+  maxY: 80
 --- !u!1001 &985665861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3463,6 +3481,7 @@ GameObject:
   - component: {fileID: 1403475295}
   - component: {fileID: 1403475296}
   - component: {fileID: 1403475297}
+  - component: {fileID: 1403475298}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3514,6 +3533,20 @@ MonoBehaviour:
   buildEffect: {fileID: 0}
   sellEffect: {fileID: 0}
   testprefab: {fileID: 1545943666229906, guid: 6d4258013fee5bf4594ec920e34e94d6, type: 3}
+--- !u!114 &1403475298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403475294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9aba206e6aa4d70af3bdef3d9dad07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 963194227}
+  Rotate: 0
 --- !u!1001 &1414438935
 PrefabInstance:
   m_ObjectHideFlags: 0
