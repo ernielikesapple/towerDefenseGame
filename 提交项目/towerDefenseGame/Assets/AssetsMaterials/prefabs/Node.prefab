@@ -108,3 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41aa2c29a1a1e43bb903e50526a6ab55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverIndicateColor: {r: 0, g: 0, b: 0, a: 0}
+  positionAboveTile: {x: 0, y: 0.5, z: 0}
+  turretOnTile: {fileID: 0}
