@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Tile : MonoBehaviour
 {
+    public AudioSource shoppingSuccessAudio;
     public Color hoverIndicateColor;
     public Color notEnoughMoneyColor;
 
@@ -53,21 +55,21 @@ public class Tile : MonoBehaviour
     {
         if (playerInfo.Money < turretToBuildLocal.cost)
         {
-            Debug.Log("Not enough money to build that!"); //todo: display the text on the screen!!!!!!!!!!!
+            playerInfo.notificationTextToDisplay = "Not enough money to build that!";
+            playerInfo.notificationTextToDisplayNotified = true;
             return;
         }
 
-        playerInfo.Money -= turretToBuildLocal.cost;
+        
 
         GameObject _turret = (GameObject)Instantiate(turretToBuildLocal.prefab, GetBuildPosition(), Quaternion.identity);
         turretOnTile = _turret;
 
         turretToBuild = turretToBuildLocal;
 
-        //GameObject effect = (GameObject)Instantiate(constructManager.buildEffect, GetBuildPosition(), Quaternion.identity);
-        //Destroy(effect, 5f);
-
-        Debug.Log("Turret build! left moeny: " + playerInfo.Money);
+        playerInfo.Money -= turretToBuildLocal.cost;
+        shoppingSuccessAudio.Play();
+        
     }
 
     void OnMouseEnter()

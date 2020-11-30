@@ -21,8 +21,6 @@ public class ConstructManager : MonoBehaviour
 	private TurretToBuild turretToBuild;
 	private Tile selectedNode;
 
-	public GameObject testprefab;
-
 	//public NodeUI nodeUI;
 
 	public bool CanBuild { get { return turretToBuild != null; } } // only allow to build when it this var gets value
