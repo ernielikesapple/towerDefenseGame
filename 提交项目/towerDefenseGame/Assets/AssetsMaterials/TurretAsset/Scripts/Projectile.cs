@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
+    public AudioSource ExplodeAudioSourceToPlay;
+
     public TurretAI.TurretType type = TurretAI.TurretType.Single;
     public Transform target;
     public bool lockOn;
@@ -32,6 +34,7 @@ public class Projectile : MonoBehaviour {
             Vector3 dir = target.position - transform.position;
             transform.rotation = Quaternion.LookRotation(dir);
         }
+        
     }
 
     private void Update()
@@ -60,8 +63,6 @@ public class Projectile : MonoBehaviour {
                 Vector3 Vo = CalculateCatapult(target.transform.position, transform.position, 1);
                 transform.GetComponent<Rigidbody>().velocity = Vo;
                 lockOn = false;
-                
-                
             }
         }else if(type == TurretAI.TurretType.Dual)
         {
@@ -75,13 +76,11 @@ public class Projectile : MonoBehaviour {
 
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
             transform.rotation = Quaternion.LookRotation(newDirection);
-            
         }
         else if (type == TurretAI.TurretType.Single)
         {
             float singleSpeed = speed * Time.deltaTime;
-            transform.Translate(transform.forward * singleSpeed * 2, Space.World);
-            
+            transform.Translate(transform.forward * singleSpeed * 2, Space.World);   
         }
     }
 
@@ -130,11 +129,14 @@ public class Projectile : MonoBehaviour {
     public void Explosion()
     {
         Instantiate(explosion, transform.position, transform.rotation);
-        
         Destroy(gameObject);
-        if (target != null) {
+        if (target != null)
+        {
             Damage(target, attackDamage);
         }
+
+        ExplodeAudioSourceToPlay.Play();
+        
         
     }
 }

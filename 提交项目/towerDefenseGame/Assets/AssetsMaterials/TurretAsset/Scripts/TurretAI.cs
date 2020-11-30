@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class TurretAI : MonoBehaviour {
 
+    public AudioSource singleMissleAudio;
+    public AudioSource singleMissleExplodeAudio;
+    public AudioSource doubleMissleAudio;
+    public AudioSource doubleMissleExplodeAudio;
+    public AudioSource cruiseMissleAudio;
+    public AudioSource cruiseMissleExplodeAudio;
+
     public enum TurretType
     {
         Single = 1,
@@ -184,6 +191,8 @@ public class TurretAI : MonoBehaviour {
             GameObject missleGo = Instantiate(bullet, muzzleMain.transform.position, muzzleMain.rotation);
             Projectile projectile = missleGo.GetComponent<Projectile>();
             projectile.type = TurretType.Catapult;
+            cruiseMissleAudio.Play();
+            projectile.ExplodeAudioSourceToPlay = cruiseMissleExplodeAudio;
             projectile.attackDamage = attackDamage;
             projectile.target = lockOnPos;
         }
@@ -195,6 +204,8 @@ public class TurretAI : MonoBehaviour {
                 GameObject missleGo = Instantiate(bullet, muzzleMain.transform.position, muzzleMain.rotation);
                 Projectile projectile = missleGo.GetComponent<Projectile>();
                 projectile.type = TurretType.Dual;
+                doubleMissleAudio.Play();
+                projectile.ExplodeAudioSourceToPlay = doubleMissleExplodeAudio;
                 projectile.attackDamage = attackDamage;
                 projectile.target = transform.GetComponent<TurretAI>().currentTarget.transform;
             }
@@ -204,6 +215,8 @@ public class TurretAI : MonoBehaviour {
                 GameObject missleGo = Instantiate(bullet, muzzleSub.transform.position, muzzleSub.rotation);
                 Projectile projectile = missleGo.GetComponent<Projectile>();
                 projectile.type = TurretType.Dual;
+                doubleMissleAudio.Play();
+                projectile.ExplodeAudioSourceToPlay = doubleMissleExplodeAudio;
                 projectile.attackDamage = attackDamage;
                 projectile.target = transform.GetComponent<TurretAI>().currentTarget.transform;
             }
@@ -216,6 +229,8 @@ public class TurretAI : MonoBehaviour {
             GameObject missleGo = Instantiate(bullet, muzzleMain.transform.position, muzzleMain.rotation);
             Projectile projectile = missleGo.GetComponent<Projectile>();
             projectile.type = TurretType.Single;
+            singleMissleAudio.Play(); 
+            projectile.ExplodeAudioSourceToPlay = singleMissleExplodeAudio;
             projectile.attackDamage = attackDamage;
             projectile.target = currentTarget.transform;
         }
