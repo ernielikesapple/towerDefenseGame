@@ -3661,6 +3661,8 @@ GameObject:
   - component: {fileID: 1403475296}
   - component: {fileID: 1403475297}
   - component: {fileID: 1403475298}
+  - component: {fileID: 1403475299}
+  - component: {fileID: 1403475300}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3726,6 +3728,116 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Camera: {fileID: 963194227}
   Rotate: 0
+--- !u!114 &1403475299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403475294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559875beda978427baf94cef4f4e2645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMoney: 100
+  startLives: 5
+--- !u!82 &1403475300
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403475294}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 62d57dd17422c4c5d9c150c4c3186e24, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.115
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1414438935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4444,9 +4556,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa854167ff0a483e910798e5ed1b040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singleMissleTurret: {fileID: 0}
-  doubleMissleTurret: {fileID: 0}
-  cruiseMissleTurret: {fileID: 0}
+  singleMissleTurret:
+    prefab: {fileID: 1545943666229906, guid: 6d4258013fee5bf4594ec920e34e94d6, type: 3}
+    cost: 100
+    upgradedPrefab: {fileID: 0}
+    upgradeCost: 0
+  doubleMissleTurret:
+    prefab: {fileID: 1321377731327022, guid: 52101a1721a4f7b4fa06ca8b586ad5c1, type: 3}
+    cost: 500
+    upgradedPrefab: {fileID: 0}
+    upgradeCost: 0
+  cruiseMissleTurret:
+    prefab: {fileID: 1460030631903856, guid: a970ba0fc593c9347b1ca8a4e50197f1, type: 3}
+    cost: 1000
+    upgradedPrefab: {fileID: 0}
+    upgradeCost: 0
 --- !u!1001 &1651573176
 PrefabInstance:
   m_ObjectHideFlags: 0

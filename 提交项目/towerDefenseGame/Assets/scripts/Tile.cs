@@ -50,13 +50,13 @@ public class Tile : MonoBehaviour
 
     void BuildTurret(TurretToBuild turretToBuildLocal)
     {
-        //if (PlayerStats.Money < turretToBuild.cost)
-        //{
-        //    Debug.Log("Not enough money to build that!");
-        //    return;
-        //}
+        if (playerInfo.Money < turretToBuildLocal.cost)
+        {
+            Debug.Log("Not enough money to build that!"); //todo: display the text on the screen
+            return;
+        }
 
-        //PlayerStats.Money -= turretToBuild.cost;
+        playerInfo.Money -= turretToBuildLocal.cost;
 
         GameObject _turret = (GameObject)Instantiate(turretToBuildLocal.prefab, GetBuildPosition(), Quaternion.identity);
         turretOnTile = _turret;
@@ -66,7 +66,7 @@ public class Tile : MonoBehaviour
         //GameObject effect = (GameObject)Instantiate(constructManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         //Destroy(effect, 5f);
 
-        Debug.Log("Turret build!");
+        Debug.Log("Turret build! left moeny: " + playerInfo.Money);
     }
 
     void OnMouseEnter()
