@@ -36,6 +36,8 @@ public class zombieSpawner : MonoBehaviour
 
     IEnumerator SpwanZombiesWaves() { // pause this piece of code, wait certain time before continuing
 
+        playerInfo.Rounds++;
+
         spawnWaveNumber++; // spawn more zombies for next waves
         for (int i = 0; i < spawnWaveNumber; i++)
         {

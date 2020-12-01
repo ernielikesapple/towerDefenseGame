@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OverallControl : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class OverallControl : MonoBehaviour
 
 	public GameObject gameOverUI;
 	public GameObject completeLevelUI;
+
+	public GameObject menuUI;
 
 	void Start()
 	{
@@ -29,7 +32,9 @@ public class OverallControl : MonoBehaviour
 	void EndGame()
 	{
 		GameIsOver = true;
+		Time.timeScale = 0f;
 		gameOverUI.SetActive(true);
+		
 		// todo: scene manager reload the scene
 	}
 
@@ -38,4 +43,51 @@ public class OverallControl : MonoBehaviour
 		GameIsOver = true;
 		completeLevelUI.SetActive(true);
 	}
+
+	public void MenuButtonClicked() {
+
+		menuUI.SetActive(!menuUI.activeSelf);
+
+		if (menuUI.activeSelf)
+		{
+			Time.timeScale = 0f;
+		}
+		else
+		{
+			Time.timeScale = 1f;
+		}
+	}
+
+	public void newGame()
+	{
+		Time.timeScale = 1f;
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
+
+	public void ContinueGame()
+	{
+		menuUI.SetActive(!menuUI.activeSelf);
+
+		if (menuUI.activeSelf)
+		{
+			Time.timeScale = 0f;
+		}
+		else
+		{
+			Time.timeScale = 1f;
+		}
+	}
+
+	public void OptionButtonClicked()
+	{
+		
+
+	}
+
+	public void ExitGame()
+	{
+		Application.Quit();
+
+	}
+
 }
