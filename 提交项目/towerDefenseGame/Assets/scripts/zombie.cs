@@ -19,8 +19,8 @@ public class zombie : MonoBehaviour
 
     public int worth = 10;
 
-    [Header("Unity Stuff")]
-    //public Image healthBar; // todo: add health bar
+    [Header("health bar stuff")]
+    public Image healthBar;
 
     public bool isDead = false;
 
@@ -32,22 +32,23 @@ public class zombie : MonoBehaviour
         speed = startMoveSpeed;
         health = startHealth;
 
-        //todo: add take walk animation
         zAnimator.SetBool("walk",true);
-        //todo: add take idle zombie sound
         walkAudioSourceToPlay.Play();
+
     }
 
-   
 
 
-    
+    void Update()
+    {
+       
+    }
+
 
     public void TakeDamage(float amount)
     {
         health -= amount;
-        Debug.Log("pao");
-        //healthBar.fillAmount = health / startHealth; //todo: add health bar
+        healthBar.fillAmount = health / startHealth; 
 
         zAnimator.SetBool("walk", false);
         zAnimator.SetBool("getAttack", true);
