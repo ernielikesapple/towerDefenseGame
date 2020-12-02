@@ -61,8 +61,6 @@ public class zombie : MonoBehaviour
         zAnimator.SetBool("walk", false);
         zAnimator.SetBool("getAttack", true);
 
-        
-
         StartCoroutine(ShowMessage(0.5f));
 
         if (health <= 0 && !isDead)

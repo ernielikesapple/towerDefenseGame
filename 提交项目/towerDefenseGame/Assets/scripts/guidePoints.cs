@@ -23,7 +23,7 @@ public class guidePoints : MonoBehaviour
         if (getEaten) {
             getEaten = false;
             playerDead.Play();
-            StartCoroutine(StopAudio(2f));
+            StartCoroutine(StopAudio(4f));
         }
     }
 

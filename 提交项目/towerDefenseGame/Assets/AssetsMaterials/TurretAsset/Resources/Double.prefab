@@ -5036,8 +5036,8 @@ MonoBehaviour:
   cruiseMissleExplodeAudio: {fileID: 0}
   currentTarget: {fileID: 0}
   turreyHead: {fileID: 4894621298927726}
-  attackDist: 7.5
-  attackDamage: 20
+  attackDist: 15
+  attackDamage: 50
   shootCoolDown: 0.5
   loockSpeed: 100
   randomRot: {x: 0, y: 0, z: 0}
@@ -10618,7 +10618,7 @@ Transform:
   m_GameObject: {fileID: 1968005088286794}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.1, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 1}
+  m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 4268993561700370}
   m_RootOrder: 2

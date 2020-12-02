@@ -9,12 +9,18 @@ public class OverallControl : MonoBehaviour
 
 	public GameObject gameOverUI;
 	public GameObject completeLevelUI;
-
+	public GameObject optionsLevelUI;
 	public GameObject menuUI;
 
 	void Start()
 	{
 		GameIsOver = false;
+
+		if (SceneManager.GetActiveScene().name == "level1") {
+			playerInfo.notificationTextToDisplay = "Hint: buy the turret from the market and place it on the tile to defend your home";
+			playerInfo.notificationTextToDisplayNotified = true;
+		}
+		
 	}
 
 	// Update is called once per frame
@@ -78,7 +84,7 @@ public class OverallControl : MonoBehaviour
 
 	public void OptionButtonClicked()
 	{
-		
+		optionsLevelUI.SetActive(true);
 
 	}
 

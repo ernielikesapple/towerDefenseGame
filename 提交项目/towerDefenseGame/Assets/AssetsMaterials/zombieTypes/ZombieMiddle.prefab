@@ -1860,14 +1860,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598c7668bcc1c4b51ada0cb71b30b6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoveSpeed: 4.95
+  startMoveSpeed: 8.25
   zAnimator: {fileID: 7389507112651452681}
   walkAudioSourceToPlay: {fileID: 4979895443265389820}
   getHurtAudioSourceToPlay: {fileID: 4232615933386482248}
   dieAudioSourceToPlay: {fileID: -9096866153281477410}
   speed: 8.42
-  startHealth: 100
-  worth: 20
+  startHealth: 75
+  worth: 100
   healthBar: {fileID: 5995026650002303333}
   isDead: 0
 --- !u!65 &1991853314134892129
@@ -2183,7 +2183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5065006e670e34c49891c2737c935dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDead: {fileID: 0}
 --- !u!1 &4569846450412258003
 GameObject:
   m_ObjectHideFlags: 0

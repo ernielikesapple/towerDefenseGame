@@ -30,7 +30,7 @@ public class playerInfo : MonoBehaviour
     {
 		currentMoneyText.text = "$: " + Money.ToString();
 		if (notificationTextToDisplayNotified) {
-			StartCoroutine(ShowMessage(notificationTextToDisplay, 3));
+			StartCoroutine(ShowMessage(notificationTextToDisplay, 6));
 			notificationTextToDisplayNotified = false;
 		}
 

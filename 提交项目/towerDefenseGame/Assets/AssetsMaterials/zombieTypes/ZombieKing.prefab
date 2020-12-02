@@ -1868,7 +1868,7 @@ MonoBehaviour:
   dieAudioSourceToPlay: {fileID: -9096866153281477410}
   speed: 0
   startHealth: 400
-  worth: 1000
+  worth: 500
   healthBar: {fileID: 5995026650002303333}
   isDead: 0
 --- !u!65 &1991853314134892129
@@ -2184,7 +2184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5065006e670e34c49891c2737c935dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDead: {fileID: 0}
 --- !u!23 &-1446122996005724367
 MeshRenderer:
   m_ObjectHideFlags: 0
