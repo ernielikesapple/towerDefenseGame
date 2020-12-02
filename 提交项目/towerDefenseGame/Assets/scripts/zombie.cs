@@ -28,7 +28,7 @@ public class zombie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.localScale = new Vector3(2f, 2f, 2f);
+       // transform.localScale = new Vector3(2f, 2f, 2f);
         speed = startMoveSpeed;
         health = startHealth;
 
@@ -41,7 +41,8 @@ public class zombie : MonoBehaviour
 
     void Update()
     {
-       
+        
+
     }
 
 
@@ -79,7 +80,7 @@ public class zombie : MonoBehaviour
 
         playerInfo.Money += worth;
 
-        //zombieSpawner.EnemiesAlive--;  // todo: update zombieSpawner
+        zombieSpawner.EnemiesAlive--; 
         walkAudioSourceToPlay.Stop();
         zAnimator.SetBool("getAttack", true);
         dieAudioSourceToPlay.Play();

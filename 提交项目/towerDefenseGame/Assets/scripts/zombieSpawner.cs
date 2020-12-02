@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class zombieSpawner : MonoBehaviour
 {
-    public Transform zombie1Prefab;
+    public static int EnemiesAlive = 0;
+    public Wave[] waves;
 
     private Transform orignalSpawnLocation;
 
@@ -27,9 +28,22 @@ public class zombieSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (EnemiesAlive > 0)
+        {
+            return;
+        }
+
+        if (spawnWaveNumber == waves.Length)
+        {
+            //gameManager.WinLevel();  todo: update it's wininig
+            Debug.Log("winnning");
+            this.enabled = false;
+        }
+
         if (nextWaveTimer <= 0f) {
             StartCoroutine(SpwanZombiesWaves());
             nextWaveTimer = timeBetweenSpawn;
+            return;
         }
         nextWaveTimer -= Time.deltaTime;
     }
@@ -38,18 +52,23 @@ public class zombieSpawner : MonoBehaviour
 
         playerInfo.Rounds++;
 
-        spawnWaveNumber++; // spawn more zombies for next waves
-        for (int i = 0; i < spawnWaveNumber; i++)
+        Wave wave = waves[spawnWaveNumber];
+
+        EnemiesAlive = wave.count;
+
+        for (int i = 0; i < wave.count; i++)
         {
-            SpwanZombies();
-            yield return new WaitForSeconds(0.8f);
+            SpwanZombies(wave.zombie);
+            yield return new WaitForSeconds(1f / wave.rate);
         }
+
+        spawnWaveNumber++; // spawn more zombies for next waves
     }
 
 
-    void SpwanZombies()
+    void SpwanZombies(GameObject zombie)
     {
-        Instantiate(zombie1Prefab, orignalSpawnLocation.position, orignalSpawnLocation.rotation);
+        Instantiate(zombie, orignalSpawnLocation.position, orignalSpawnLocation.rotation);
     }
 
 }

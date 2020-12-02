@@ -45,7 +45,7 @@ public class zombieMovement : MonoBehaviour
 	void EndPath()
 	{
 		playerInfo.Lives--;
-		//WaveSpawner.EnemiesAlive--;
+		zombieSpawner.EnemiesAlive--;
 		Destroy(gameObject);
 	}
 }

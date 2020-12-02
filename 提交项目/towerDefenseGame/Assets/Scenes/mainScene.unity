@@ -5740,9 +5740,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75434c30770d548c2863264d01a2641b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie1Prefab: {fileID: 578376449398627443, guid: 6dc4cf4496348884d8ee27743ae38562,
-    type: 3}
-  timeBetweenSpawn: 5
+  waves:
+  - zombie: {fileID: 4493914613880827488, guid: aa6c716c3fbc746d78d9475bdcdc3870,
+      type: 3}
+    count: 1
+    rate: 1
+  timeBetweenSpawn: 2.36
 --- !u!114 &1403475297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7397,7 +7400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb506eea79004b1a8d13d14e08e3171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui: {fileID: 0}
 --- !u!1001 &1684765513
 PrefabInstance:
   m_ObjectHideFlags: 0
