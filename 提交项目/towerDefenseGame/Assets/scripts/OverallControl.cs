@@ -34,8 +34,6 @@ public class OverallControl : MonoBehaviour
 		GameIsOver = true;
 		Time.timeScale = 0f;
 		gameOverUI.SetActive(true);
-		
-		// todo: scene manager reload the scene
 	}
 
 	public void WinLevel()

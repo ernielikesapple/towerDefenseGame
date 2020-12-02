@@ -11,6 +11,8 @@ public class zombieSpawner : MonoBehaviour
     public float timeBetweenSpawn = 3f;
     private float nextWaveTimer = 2f;
 
+    public OverallControl gameManager;
+
     private int spawnWaveNumber = 0;
 
     // Start is called before the first frame update
@@ -35,7 +37,7 @@ public class zombieSpawner : MonoBehaviour
 
         if (spawnWaveNumber == waves.Length)
         {
-            //gameManager.WinLevel();  todo: update it's wininig
+            gameManager.WinLevel();  //todo: update it's wininig
             Debug.Log("winnning");
             this.enabled = false;
         }
