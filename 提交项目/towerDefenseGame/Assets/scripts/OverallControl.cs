@@ -59,7 +59,7 @@ public class OverallControl : MonoBehaviour
 	public void newGame()
 	{
 		Time.timeScale = 1f;
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		SceneManager.LoadScene("level1");
 	}
 
 	public void ContinueGame()

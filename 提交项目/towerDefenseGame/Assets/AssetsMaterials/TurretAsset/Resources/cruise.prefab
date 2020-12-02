@@ -418,8 +418,8 @@ MonoBehaviour:
   cruiseMissleExplodeAudio: {fileID: 8587236248317736720}
   currentTarget: {fileID: 0}
   turreyHead: {fileID: 4753845799557008}
-  attackDist: 10
-  attackDamage: 10
+  attackDist: 15
+  attackDamage: 200
   shootCoolDown: 1
   loockSpeed: 100
   randomRot: {x: 0, y: 0, z: 0}

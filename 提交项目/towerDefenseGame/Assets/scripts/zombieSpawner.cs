@@ -21,17 +21,17 @@ public class zombieSpawner : MonoBehaviour
         GameObject emptyGO = new GameObject();  // set intial spawn location
         emptyGO.transform.position = new Vector3(-2.44f, 0.8f, 2.03f);
         emptyGO.transform.rotation = Quaternion.Euler(0, 90, 0);
-        orignalSpawnLocation = emptyGO.transform; 
+        orignalSpawnLocation = emptyGO.transform;
 
-
-
+        spawnWaveNumber = 0;
+        EnemiesAlive = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (EnemiesAlive > 0)
-        {
+        {            
             return;
         }
 

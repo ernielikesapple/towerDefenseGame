@@ -9,8 +9,9 @@ public class zombieMovement : MonoBehaviour
 	private int wavepointIndex = 0;
 
 	private zombie zombieSingle;
+    //public AudioSource playerDead;
 
-	void Start()
+    void Start()
 	{
 		zombieSingle = GetComponent<zombie>(); // get reference to the zombie instance
 
@@ -39,13 +40,22 @@ public class zombieMovement : MonoBehaviour
 		}
 
 		wavepointIndex++;
+		if (wavepointIndex == 1)
+		{
+			transform.Rotate(0f, -90.0f, 0.0f, Space.World);
+		}
+		else if(wavepointIndex == 2) {
+			transform.Rotate(0f, 90.0f, 0.0f, Space.World);
+		}
+
 		target = guidePoints.guidePointsArray[wavepointIndex];
 	}
 
 	void EndPath()
 	{
 		playerInfo.Lives--;
-		zombieSpawner.EnemiesAlive--;
+        //playerDead.Play();
+        zombieSpawner.EnemiesAlive--;
 		Destroy(gameObject);
 	}
 }

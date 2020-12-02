@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
+
+
 public class zombie : MonoBehaviour
 {
     public float startMoveSpeed = 0.5f;
@@ -28,7 +30,12 @@ public class zombie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // transform.localScale = new Vector3(2f, 2f, 2f);
+        AudioSource[] audios = GetComponents<AudioSource>();
+        walkAudioSourceToPlay = audios[0];
+        getHurtAudioSourceToPlay = audios[1];
+        dieAudioSourceToPlay = audios[2];
+
+        // transform.localScale = new Vector3(2f, 2f, 2f);
         speed = startMoveSpeed;
         health = startHealth;
 
@@ -54,7 +61,7 @@ public class zombie : MonoBehaviour
         zAnimator.SetBool("walk", false);
         zAnimator.SetBool("getAttack", true);
 
-        getHurtAudioSourceToPlay.Play();
+        
 
         StartCoroutine(ShowMessage(0.5f));
 
@@ -69,8 +76,9 @@ public class zombie : MonoBehaviour
     {
         
         yield return new WaitForSeconds(delay);
-        
+       
         zAnimator.SetBool("getAttack", false);
+        getHurtAudioSourceToPlay.Play();
         zAnimator.SetBool("walk", true);
     }
 
@@ -81,7 +89,6 @@ public class zombie : MonoBehaviour
         playerInfo.Money += worth;
 
         zombieSpawner.EnemiesAlive--; 
-        walkAudioSourceToPlay.Stop();
         zAnimator.SetBool("getAttack", true);
         dieAudioSourceToPlay.Play();
         Destroy(gameObject);

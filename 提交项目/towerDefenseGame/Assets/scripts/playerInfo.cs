@@ -11,7 +11,6 @@ public class playerInfo : MonoBehaviour
 	public int startMoney = 100;
 	public Text currentMoneyText;
 	public Text notificationText;
-	// todo : track the current level text
 	public Text remainingLivesText;
 
 	public static int Lives;
