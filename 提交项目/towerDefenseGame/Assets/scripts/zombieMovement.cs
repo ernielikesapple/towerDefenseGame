@@ -9,7 +9,7 @@ public class zombieMovement : MonoBehaviour
 	private int wavepointIndex = 0;
 
 	private zombie zombieSingle;
-    //public AudioSource playerDead;
+    
 
     void Start()
 	{
@@ -54,8 +54,10 @@ public class zombieMovement : MonoBehaviour
 	void EndPath()
 	{
 		playerInfo.Lives--;
-        //playerDead.Play();
-        zombieSpawner.EnemiesAlive--;
+		
+		guidePoints.getEaten = true;
+
+		zombieSpawner.EnemiesAlive--;
 		Destroy(gameObject);
 	}
 }
